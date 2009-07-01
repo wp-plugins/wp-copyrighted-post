@@ -3,7 +3,7 @@
 Plugin Name: wp-copyrighted-post
 Plugin URI: http://simplelib.co.cc/?p=166
 Description: Adds copyright notice in the end of each post of your blog. Visit <a href="http://simplelib.co.cc/">SimpleLib blog</a> for more details.
-Version: 0.1.1
+Version: 0.2.4
 Author: minimus
 Author URI: http://blogovod.co.cc
 */
@@ -35,7 +35,7 @@ if ( !class_exists( 'CopyrightedPost' ) ) {
 			'crStringEx' => ''
 			);
 			
-		function __construct() {
+		function CopyrightedPost() {
 			//load language
 			$plugin_dir = basename( dirname( __FILE__ ) );
 			if ( function_exists( 'load_plugin_textdomain' ) ) 
@@ -44,8 +44,8 @@ if ( !class_exists( 'CopyrightedPost' ) ) {
 			//Actions and Filters
 			add_action('admin_menu', array(&$this, 'regAdminPage'));
 			add_action('activate_wp-copyrighted-post/wp-copyrighted-post.php',  array(&$this, 'init'));
-			add_filter('the_content', array(&$this, 'addCopyright'), 9);
-			add_filter('the_content_rss', array(&$this, 'addCopyrightRSS'), 7);
+			add_filter('the_content', array(&$this, 'addCopyright'), 7);
+			//add_filter('the_content_rss', array(&$this, 'addCopyrightRSS'), 7);
 		}
 		
 		function init() {
@@ -68,23 +68,13 @@ if ( !class_exists( 'CopyrightedPost' ) ) {
 		
 		function addCopyright( $content ) {
 			$cpOptions = $this->getAdminOptions();
-			if ( is_single() | ( 'false' === $cpOptions['singlePost'] ) ) {
+			if ( is_single() | ( 'false' === $cpOptions['singlePost'] ) | is_feed() ) {
 				$postId = get_the_ID();
 				$postData = get_post($postId, ARRAY_A);
 				$postDate = explode( '-', $postData['post_date'] );
 				$postModifed = explode( '-', $postData['post_modified'] );
-				$content .= "<p style='text-align:left'>&copy; ".( ( $postDate[0] === $postModifed[0] ) ? $postDate[0] : $postDate[0]." - ".$postModifed[0] ).", <a href='".get_bloginfo('url')."'>".(($cpOptions['owner'] === 'blog') ? get_bloginfo('name') : get_the_author())."</a>. ".$cpOptions['crString']." ".$cpOptions['crStringEx']."</p>";
+				$content .= "\n<p style='text-align:left'>&copy; ".( ( $postDate[0] === $postModifed[0] ) ? $postDate[0] : $postDate[0]." - ".$postModifed[0] ).", <a href='".get_bloginfo('url')."'>".(($cpOptions['owner'] === 'blog') ? get_bloginfo('name') : get_the_author())."</a>. ".$cpOptions['crString']." ".$cpOptions['crStringEx']."</p>";
 			}
-			return $content;
-		}
-		
-		function addCopyrightRSS( $content ) {
-			$cpOptions = $this->getAdminOptions();
-			$postId = get_the_ID();
-			$postData = get_post($postId, ARRAY_A);
-			$postDate = explode( '-', $postData['post_date'] );
-			$postModifed = explode( '-', $postData['post_modified'] );
-			$content .= "<p style='text-align:left'>&copy; ".( ( $postDate[0] === $postModifed[0] ) ? $postDate[0] : $postDate[0]." - ".$postModifed[0] ).", <a href='".get_bloginfo('url')."'>".(($cpOptions['owner'] === 'blog') ? get_bloginfo('name') : get_the_author())."</a>. ".$cpOptions['crString']." ".$cpOptions['crStringEx']."</p>";
 			return $content;
 		}
 		
