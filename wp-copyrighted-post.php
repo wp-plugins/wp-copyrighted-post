@@ -3,7 +3,7 @@
 Plugin Name: wp-copyrighted-post
 Plugin URI: http://simplelib.co.cc/?p=166
 Description: Adds copyright notice in the end of each post of your blog. Visit <a href="http://simplelib.co.cc/">SimpleLib blog</a> for more details.
-Version: 0.2.4
+Version: 0.2.5
 Author: minimus
 Author URI: http://blogovod.co.cc
 */
