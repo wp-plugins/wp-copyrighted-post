@@ -3,7 +3,7 @@
 Plugin Name: wp-copyrighted-post
 Plugin URI: http://simplelib.co.cc/?p=166
 Description: Adds copyright notice in the end of each post of your blog. Visit <a href="http://simplelib.co.cc/">SimpleLib blog</a> for more details.
-Version: 0.2.5
+Version: 0.3.7
 Author: minimus
 Author URI: http://blogovod.co.cc
 */
@@ -39,17 +39,23 @@ if ( !class_exists( 'CopyrightedPost' ) ) {
 			//load language
 			$plugin_dir = basename( dirname( __FILE__ ) );
 			if ( function_exists( 'load_plugin_textdomain' ) ) 
-				load_plugin_textdomain( 'wp-copyrighted-post', 'wp-content/plugins/' . $plugin_dir, $plugin_dir );
+				load_plugin_textdomain( 'wp-copyrighted-post', PLUGINDIR . $plugin_dir, $plugin_dir );
 				
 			//Actions and Filters
 			add_action('admin_menu', array(&$this, 'regAdminPage'));
 			add_action('activate_wp-copyrighted-post/wp-copyrighted-post.php',  array(&$this, 'init'));
+			add_action('deactivate_wp-copyrighted-post/wp-copyrighted-post.php', array(&$this, 'onDeactivate'));
 			add_filter('the_content', array(&$this, 'addCopyright'), 7);
 			//add_filter('the_content_rss', array(&$this, 'addCopyrightRSS'), 7);
 		}
 		
 		function init() {
-			$this->getAdminOptions();
+			$cpAdminOptions = $this->getAdminOptions();
+			update_option($this->adminOptionsName, $cpAdminOptions);
+		}
+		
+		function onDeactivate() {
+			delete_option($this->adminOptionsName);
 		}
 		
 		//Returns an array of admin options
@@ -61,8 +67,7 @@ if ( !class_exists( 'CopyrightedPost' ) ) {
 				foreach ($cpOptions as $key => $option) {
 					$cpAdminOptions[$key] = $option;
 				}
-			} 
-			update_option($this->adminOptionsName, $cpAdminOptions);
+			}
 			return $cpAdminOptions;			
 		}
 		
@@ -73,7 +78,7 @@ if ( !class_exists( 'CopyrightedPost' ) ) {
 				$postData = get_post($postId, ARRAY_A);
 				$postDate = explode( '-', $postData['post_date'] );
 				$postModifed = explode( '-', $postData['post_modified'] );
-				$content .= "\n<p style='text-align:left'>&copy; ".( ( $postDate[0] === $postModifed[0] ) ? $postDate[0] : $postDate[0]." - ".$postModifed[0] ).", <a href='".get_bloginfo('url')."'>".(($cpOptions['owner'] === 'blog') ? get_bloginfo('name') : get_the_author())."</a>. ".$cpOptions['crString']." ".$cpOptions['crStringEx']."</p>";
+				$content .= "\n<p style='text-align:left'>&copy; ".( ( $postDate[0] === $postModifed[0] ) ? $postDate[0] : $postDate[0]." - ".$postModifed[0] ).", <a href='".get_bloginfo('url')."'>".(($cpOptions['owner'] === 'blog') ? get_bloginfo('name') : get_the_author())."</a>. ".htmlspecialchars_decode( $cpOptions['crString'] )." ".htmlspecialchars_decode( $cpOptions['crStringEx'] )."</p>";
 			}
 			return $content;
 		}
@@ -125,8 +130,10 @@ if ( !class_exists( 'CopyrightedPost' ) ) {
 				
 				if (isset($_POST['update_cpSettings'])) {
 				foreach ($options as $value) {
-					if (isset($_POST[$value['id']])) 
-						$cpOptions[$value['id']] = $_POST[$value['id']];
+					if (isset($_POST[$value['id']])) {
+						if ( $value['disp'] === 'text' ) $cpOptions[$value['id']] = htmlspecialchars(stripslashes($_POST[$value['id']]));
+						else $cpOptions[$value['id']] = $_POST[$value['id']];
+					}
 				}
 				update_option($this->adminOptionsName, $cpOptions);
 				?>

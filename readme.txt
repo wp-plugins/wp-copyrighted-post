@@ -3,8 +3,8 @@ Contributors: minimus
 Donate link: http://simplelib.co.cc/
 Tags: content, copyright, text
 Requires at least: 2.6
-Tested up to: 2.8.1
-Stable tag: 0.2.5
+Tested up to: 2.8.2
+Stable tag: 0.3.7
 
 Adds copyright notice in the end of each post of your blog.
 
@@ -45,5 +45,8 @@ If you have created your own language pack, or have an update of an existing one
 	* Wordpress 2.8.1 compatibility tested
 * 0.2.5
 	* Simplified Chinese language by [爱写字](http://ixiezi.com/) added
+* 0.3.7
+	* Embeding HTML tags added
+	* Codes of activating and deactivating optimised
 
 
