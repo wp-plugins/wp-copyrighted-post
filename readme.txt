@@ -1,10 +1,10 @@
 === wp-copyrighted-post ===
 Contributors: minimus
-Donate link: http://simplelib.co.cc/
-Tags: content, copyright, text
+Donate link: http://www.simplelib.com/
+Tags: content, copyright, text, post
 Requires at least: 2.6
-Tested up to: 2.8.2
-Stable tag: 0.3.7
+Tested up to: 3.0.1
+Stable tag: 1.0.8
 
 Adds copyright notice in the end of each post of your blog.
 
@@ -34,19 +34,37 @@ If you have created your own language pack, or have an update of an existing one
 
 == Changelog ==
 
-= Version History =
+= 1.0.8 =
+* Plugin files modified in accordance with new Wordpress standards.
+= 0.3.7 =
+* Embeding HTML tags added
+* Codes of activating and deactivating optimised
+= 0.2.5 =
+* Simplified Chinese language by [爱写字](http://ixiezi.com/) added
+= 0.2.4 =
+* PHP4 compatibility added
+* Belarus language by [Fat Cower](http://www.fatcow.com) added
+* RSS Feed plugin output codes optimised
+* Wordpress 2.8.1 compatibility tested
+= 0.1.1 =
+* Initial upload
 
-* 0.1.1
-	* Initial upload
-* 0.2.4
-	* PHP4 compatibility added
-	* Belarus language by [Fat Cower](http://www.fatcow.com) added
-	* RSS Feed plugin output codes optimised
-	* Wordpress 2.8.1 compatibility tested
-* 0.2.5
-	* Simplified Chinese language by [爱写字](http://ixiezi.com/) added
-* 0.3.7
-	* Embeding HTML tags added
-	* Codes of activating and deactivating optimised
+== Upgrade Notice ==
+
+= 1.0.8 =
+Plugin files modified in accordance with new Wordpress standards.
+= 0.3.7 =
+Embeding HTML tags added
+Codes of activating and deactivating optimised
+= 0.2.5 =
+Simplified Chinese language by [爱写字](http://ixiezi.com/) added
+= 0.2.4 =
+PHP4 compatibility added
+Belarus language by [Fat Cower](http://www.fatcow.com) added
+RSS Feed plugin output codes optimised
+Wordpress 2.8.1 compatibility tested
+= 0.1.1 =
+Initial upload
+
 
 

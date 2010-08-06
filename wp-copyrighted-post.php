@@ -1,14 +1,14 @@
 <?php
 /*
-Plugin Name: wp-copyrighted-post
-Plugin URI: http://simplelib.co.cc/?p=166
-Description: Adds copyright notice in the end of each post of your blog. Visit <a href="http://simplelib.co.cc/">SimpleLib blog</a> for more details.
-Version: 0.3.7
+Plugin Name: Copyrighted Post
+Plugin URI: http://www.simplelib.com/?p=166
+Description: Adds copyright notice in the end of each post of your blog. Visit <a href="http://www.simplelib.com/">SimpleLib blog</a> for more details.
+Version: 1.0.8
 Author: minimus
-Author URI: http://blogovod.co.cc
+Author URI: http://blogcoding.ru
 */
 
-/*  Copyright 2009, minimus  (email : minimus.blogovod@gmail.com)
+/*  Copyright 2009 - 2010, minimus  (email : minimus@simplelib.com)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -39,17 +39,16 @@ if ( !class_exists( 'CopyrightedPost' ) ) {
 			//load language
 			$plugin_dir = basename( dirname( __FILE__ ) );
 			if ( function_exists( 'load_plugin_textdomain' ) ) 
-				load_plugin_textdomain( 'wp-copyrighted-post', PLUGINDIR . $plugin_dir, $plugin_dir );
+				load_plugin_textdomain( 'wp-copyrighted-post', false, $plugin_dir );
 				
 			//Actions and Filters
 			add_action('admin_menu', array(&$this, 'regAdminPage'));
-			add_action('activate_wp-copyrighted-post/wp-copyrighted-post.php',  array(&$this, 'init'));
+			add_action('activate_wp-copyrighted-post/wp-copyrighted-post.php',  array(&$this, 'onActivate'));
 			add_action('deactivate_wp-copyrighted-post/wp-copyrighted-post.php', array(&$this, 'onDeactivate'));
 			add_filter('the_content', array(&$this, 'addCopyright'), 7);
-			//add_filter('the_content_rss', array(&$this, 'addCopyrightRSS'), 7);
 		}
 		
-		function init() {
+		function onActivate() {
 			$cpAdminOptions = $this->getAdminOptions();
 			update_option($this->adminOptionsName, $cpAdminOptions);
 		}
