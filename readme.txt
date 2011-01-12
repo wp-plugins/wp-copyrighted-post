@@ -1,4 +1,4 @@
-=== wp-copyrighted-post ===
+=== Copyrighted Post ===
 Contributors: minimus
 Donate link: http://www.simplelib.com/
 Tags: content, copyright, text, post
