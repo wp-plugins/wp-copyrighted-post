@@ -1,10 +1,10 @@
-=== Copyrighted Post ===
+=== wp-copyrighted-post ===
 Contributors: minimus
 Donate link: http://www.simplelib.com/
 Tags: content, copyright, text, post
-Requires at least: 2.6
-Tested up to: 3.0.1
-Stable tag: 1.0.8
+Requires at least: 2.8
+Tested up to: 3.1
+Stable tag: 1.1.10
 
 Adds copyright notice in the end of each post of your blog.
 
@@ -34,6 +34,9 @@ If you have created your own language pack, or have an update of an existing one
 
 == Changelog ==
 
+= 1.1.10 =
+* Settings codes are optimised
+* Codes modified in accordance with new Wordpress 3+ standards.
 = 1.0.8 =
 * Plugin files modified in accordance with new Wordpress standards.
 = 0.3.7 =
@@ -51,6 +54,9 @@ If you have created your own language pack, or have an update of an existing one
 
 == Upgrade Notice ==
 
+= 1.1.10 =
+Settings codes are optimised 
+Codes modified in accordance with new Wordpress 3+ standards.
 = 1.0.8 =
 Plugin files modified in accordance with new Wordpress standards.
 = 0.3.7 =
