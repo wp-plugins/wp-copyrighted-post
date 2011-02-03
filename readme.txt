@@ -4,7 +4,7 @@ Donate link: http://www.simplelib.com/
 Tags: content, copyright, text, post
 Requires at least: 2.8
 Tested up to: 3.1
-Stable tag: 1.1.10
+Stable tag: 1.2.13
 
 Adds copyright notice in the end of each post of your blog.
 
@@ -24,16 +24,20 @@ If you have created your own language pack, or have an update of an existing one
 == Installation ==
 
 1. Upload plugin dir to the `/wp-content/plugins/` directory
-2. Activate the plugin through the 'Plugins' menu in WordPress
-3. Set plugin parameters for your needs
+1. Activate the plugin through the 'Plugins' menu in WordPress
+1. Set plugin parameters on your blog "Reading" settings page for your needs
 
 == Screenshots ==
 
 1. Example of plugin output
-2. wp-copyrighted-post Admin Page
+1. wp-copyrighted-post Admin Page
 
 == Changelog ==
 
+= 1.2.13 =
+* Owner link settings are expanded
+* "Exclude Posts" setting is added
+* "Exclude Categories" setting is added
 = 1.1.10 =
 * Settings codes are optimised
 * Codes modified in accordance with new Wordpress 3+ standards.
@@ -54,6 +58,10 @@ If you have created your own language pack, or have an update of an existing one
 
 == Upgrade Notice ==
 
+= 1.2.13 =
+Owner link settings are expanded. 
+"Exclude Posts" setting is added. 
+"Exclude Categories" setting is added. 
 = 1.1.10 =
 Settings codes are optimised 
 Codes modified in accordance with new Wordpress 3+ standards.
