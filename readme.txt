@@ -3,8 +3,10 @@ Contributors: minimus
 Donate link: http://www.simplelib.com/
 Tags: content, copyright, text, post
 Requires at least: 2.8
-Tested up to: 3.1
-Stable tag: 1.2.13
+Tested up to: 4.0
+Stable tag: 1.2.14
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Adds copyright notice in the end of each post of your blog.
 
@@ -27,6 +29,10 @@ If you have created your own language pack, or have an update of an existing one
 1. Activate the plugin through the 'Plugins' menu in WordPress
 1. Set plugin parameters on your blog "Reading" settings page for your needs
 
+== Frequently Asked Questions ==
+
+No question now.
+
 == Screenshots ==
 
 1. Example of plugin output
@@ -34,6 +40,8 @@ If you have created your own language pack, or have an update of an existing one
 
 == Changelog ==
 
+= 1.2.14 =
+* WP 4.0 compatibility
 = 1.2.13 =
 * Owner link settings are expanded
 * "Exclude Posts" setting is added
@@ -58,6 +66,8 @@ If you have created your own language pack, or have an update of an existing one
 
 == Upgrade Notice ==
 
+= 1.2.14 =
+* WP 4.0 compatibility
 = 1.2.13 =
 Owner link settings are expanded. 
 "Exclude Posts" setting is added. 
