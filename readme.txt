@@ -3,8 +3,8 @@ Contributors: minimus
 Donate link: http://www.simplelib.com/
 Tags: content, copyright, text, post
 Requires at least: 2.8
-Tested up to: 4.0
-Stable tag: 1.2.14
+Tested up to: 4.2
+Stable tag: 1.2.15
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -40,6 +40,8 @@ No question now.
 
 == Changelog ==
 
+= 1.2.15 =
+* WP 4.2 compatibility
 = 1.2.14 =
 * WP 4.0 compatibility
 = 1.2.13 =
@@ -66,8 +68,10 @@ No question now.
 
 == Upgrade Notice ==
 
+= 1.2.15 =
+WP 4.2 compatibility.
 = 1.2.14 =
-* WP 4.0 compatibility
+WP 4.0 compatibility
 = 1.2.13 =
 Owner link settings are expanded. 
 "Exclude Posts" setting is added. 

@@ -3,7 +3,7 @@
 Plugin Name: Copyrighted Post
 Plugin URI: http://www.simplelib.com/?p=166
 Description: Adds copyright notice in the end of each post of your blog. Visit <a href="http://www.simplelib.com/">SimpleLib blog</a> for more details.
-Version: 1.2.14
+Version: 1.2.15
 Author: minimus
 Author URI: http://blogcoding.ru
 */
